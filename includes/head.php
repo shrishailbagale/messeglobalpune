@@ -5,8 +5,7 @@
   <title>Messe Global Pune</title>
   
   <link rel="stylesheet" href="assets/vendor/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.base.css">
-  
+  <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.base.css">  
   
   
   <link rel="stylesheet" href="assets/css/style.css">

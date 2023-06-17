@@ -251,6 +251,7 @@ if(isset($_POST['submit']))
                 <tr>
                  <th class="text-center"></th>
                  <th>Booking ID</th>
+                 <th class="d-none d-sm-table-cell">Event Date</th>
                  <th class="d-none d-sm-table-cell">Cutomer Name</th>
                  <th class="d-none d-sm-table-cell">Mobile Number</th>
                  <th class="d-none d-sm-table-cell">Email</th>
@@ -274,7 +275,8 @@ if(isset($_POST['submit']))
                   {               ?>
                     <tr>
                       <td class="text-center"><?php echo htmlentities($cnt);?></td>
-                      <td class="font-w600"><?php  echo htmlentities($row->BookingID);?></td>
+                      <td class="font-w600 text-danger"><b><?php  echo htmlentities($row->BookingID);?></b></td>
+                      <td class="font-w600"><h5><?php  echo htmlentities($row->EventDate);?></h4></td>
                       <td class="font-w600"><?php  echo htmlentities($row->Name);?></td>
                       <td class="font-w600">0<?php  echo htmlentities($row->MobileNumber);?></td>
                       <td class="font-w600"><?php  echo htmlentities($row->Email);?></td>

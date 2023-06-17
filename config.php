@@ -1,15 +1,14 @@
 <?php
-session_start();
-
-$host = "localhost";    /* Host name */
-$user = "root";         /* User */
-$password = "";         /* Password */
-$dbname = "messeglobal";   /* Database name */
+$servername = "localhost";
+$username = "wp440";
+$password = "9v1XkH!14p";
 
 // Create connection
-$con = mysqli_connect($host, $user, $password,$dbname);
+$conn = new mysqli($servername, $username, $password);
 
 // Check connection
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
+?>

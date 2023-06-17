@@ -53,19 +53,20 @@ check_login();
               <thead>
                 <tr>
                  <th class="text-center"></th>
+                 <th class="d-none d-sm-table-cell">Booking Date</th>
                  <th>Booking ID</th>
                  <th class="d-none d-sm-table-cell">Cutomer Name</th>
                  <th class="d-none d-sm-table-cell">Mobile Number</th>
                  <th class="d-none d-sm-table-cell">Email</th>
-                 <th class="d-none d-sm-table-cell">Booking Date</th>
+                 <th class="d-none d-sm-table-cell">Event Date</th>
                  <th class="d-none d-sm-table-cell">Status</th>
-                 <th class=" Text-center" style="width: 15%;">Action</th>
+                 <th class="" style="width: 10%;">Action</th>
                </tr>
              </thead>
             
 <tbody>
                <?php
-               $sql="SELECT * from tblbooking ";
+               $sql="SELECT * from tblbooking order by BookingDate Desc ";
                $query = $dbh -> prepare($sql);
                $query->execute();
                $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -74,29 +75,39 @@ check_login();
                if($query->rowCount() > 0)
                {
                 foreach($results as $row)
-                  {               ?>
+                  {?>
                     <tr>
                       <td class="text-center"><?php echo htmlentities($cnt);?></td>
+                       <td class="font-w600">
+                        <span class=""><?php  echo htmlentities($row->BookingDate);?></span>
+                      </td>
                       <td class="font-w600"><?php  echo htmlentities($row->BookingID);?></td>
                       <td class="font-w600"><?php  echo htmlentities($row->Name);?></td>
                       <td class="font-w600"><?php  echo htmlentities($row->MobileNumber);?></td>
                       <td class="font-w600"><?php  echo htmlentities($row->Email);?></td>
                       <td class="font-w600">
-                        <span class="badge badge-info"><?php  echo htmlentities($row->BookingDate);?></span>
+                        <span class="badge badge-info"><?php  echo htmlentities($row->EventDate);?></span>
                       </td>
+                     
                       <?php if($row->Status=="")
                       { 
                         ?>
                         <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                         <?php 
-                      } else { ?>
+                      } else if($row->Status=="Cancelled")  { ?>
                         <td class="d-none d-sm-table-cell">
-                          <span class="badge badge-info"><?php  echo htmlentities($row->Status);?></span>
+                          <span class="badge" style="background-color:red; color:white;"><?php  echo htmlentities($row->Status);?></span>
                         </td>
                         <?php 
+                      } else { ?>
+                        <td class="d-none d-sm-table-cell">
+                          <span class="badge badge-info" style="background-color:green; color:white;"><?php  echo htmlentities($row->Status);?></span>
+                        </td>
+
+                        <?php 
                       } ?> 
-                      <td class=" text-center"><a href="#"  class=" edit_data4 btn btn-info rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
-                        <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-primary rounded"><i class="mdi mdi-printer" aria-hidden="true"></i></a>
+                      <td class=" text-center"><a href="#"  class=" edit_data4 btn btn-success rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
+                        <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-danger rounded"><i class="mdi mdi-printer" aria-hidden="true"></i></a>
                       </td>
                     </tr>
                     <?php

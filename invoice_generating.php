@@ -16,14 +16,29 @@ check_login();
       <div class="main-panel">
         <div class="content-wrapper">
 
-          <div class="row" id="exampl">
+        <div class="container" id="container">
+          <div>
+            <div class="row">
+              <div class="col">
+              <img src="assets/img/companyimages/logo1.jpg"/>
+
+              </div>
+
+            </div>
+           
+         
+
+          </div>
+          <div class="card">
+            <div class="card-body">
+            <div class="row" id="exampl">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 
                 <div class="table-responsive p-3">
                   <?php
                   $invid=$_GET['invid'];
-                  $sql="SELECT tblbooking.BookingID,tblbooking.Name,tblbooking.MobileNumber,tblbooking.Email,tblbooking.EventDate,tblbooking.EventStartingtime,tblbooking.EventEndingtime,tblbooking.VenueAddress,tblbooking.EventType,tblbooking.AdditionalInformation,tblbooking.BookingDate,tblbooking.Remark,tblbooking.Status,tblbooking.UpdationDate,tblservice.ServiceName,tblservice.SerDes,tblservice.ServicePrice from tblbooking join tblservice on tblbooking.ServiceID=tblservice.ID  where tblbooking.ID=:invid";
+                  $sql="SELECT tblbooking.BookingID,tblbooking.Name,tblbooking.MobileNumber,tblbooking.Email,tblbooking.EventDate,tblbooking.EventStartingtime,tblbooking.EventEndingtime,tblbooking.VenueAddress,tblbooking.EventType,tblbooking.AdditionalInformation,tblbooking.BookingDate,tblbooking.Remark,tblbooking.Status,tblbooking.UpdationDate,tblservice.ServiceName,tblservice.SerDes,tblservice.ServicePrice from tblbooking join tblservice on tblbooking.ServiceID = tblservice.ID where tblbooking.ID=:invid";
                   $query = $dbh -> prepare($sql);
                   $query-> bindParam(':invid', $invid, PDO::PARAM_STR);
                   $query->execute();
@@ -36,8 +51,10 @@ check_login();
                     { 
                       ?>
                       <table  border="1" class="table align-items-center table-bordered table-hover">
+
+                    
                         <tr>
-                          <th colspan="5" style="text-align: center;color: red;font-size: 20px">Booking Number: <?php  echo $row->BookingID;?></th>
+                          <th colspan="5" style="text-align: center;color: red;font-size: 18px">Booking No.:<?php  echo $row->BookingID;?></th>
                         </tr>
 
 
@@ -85,6 +102,11 @@ check_login();
               </div>
             </div>
           </div>
+            </div>
+          </div>
+        </div>
+
+          
         </div>
         
         
@@ -101,13 +123,13 @@ check_login();
   
   <script>
     function CallPrint(strid) {
-      var prtContent = document.getElementById("exampl");
-      var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+      var prtContent = document.getElementById("container");
+      var WinPrint = window.open('', '', 'left=2,top=2,right=2, width=1000,height=900,toolbar=0,scrollbars=0,status=0');
       WinPrint.document.write(prtContent.innerHTML);
       WinPrint.document.close();
       WinPrint.focus();
       WinPrint.print();
-      WinPrint.close();
+      
     }
   </script>
 </body>

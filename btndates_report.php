@@ -6,9 +6,6 @@ check_login();
 <html lang="en">
 <?php @include("includes/head.php");?>
 <body>
-<!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
   <div class="container-scroller">
     
     <?php @include("includes/header.php");?>
@@ -92,9 +89,7 @@ check_login();
                   <th class=" Text-center" style="width: 15%;">Action</th>
                 </tr>
               </thead>
-              <!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
+            
 <tbody>
                 <?php
                 $sql="SELECT * from tblbooking where date( BookingDate) between '$fdate' and '$tdate'";
@@ -156,9 +151,7 @@ check_login();
                    <th class=" Text-center" style="width: 15%;">Action</th>
                  </tr>
                </thead>
-               <!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
+              
 <tbody>
                 <?php
                 $sql="SELECT * from tblbooking ORDER BY ID DESC";
@@ -178,21 +171,27 @@ check_login();
                         <td class="font-w600"><?php  echo htmlentities($row->MobileNumber);?></td>
                         <td class="font-w600"><?php  echo htmlentities($row->Email);?></td>
                         <td class="font-w600">
-                          <span class="badge badge-primary"><?php  echo htmlentities($row->BookingDate);?></span>
+                          <span class="badge badge-info"><?php  echo htmlentities($row->BookingDate);?></span>
                         </td>
                         <?php if($row->Status=="")
                         { 
                           ?>
                           <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                           <?php 
+                        } else if($row->Status=="Cancelled"){ ?>
+                          <td class="d-none d-sm-table-cell">
+                            <span class="badge" style="background-color:red; color:white;"><?php  echo htmlentities($row->Status);?></span>
+                          </td>
+
+                          <?php 
                         } else { ?>
                           <td class="d-none d-sm-table-cell">
-                            <span class="badge badge-primary"><?php  echo htmlentities($row->Status);?></span>
+                            <span class="badge" style="background-color:green; color:white;"><?php  echo htmlentities($row->Status);?></span>
                           </td>
                           <?php 
                         } ?> 
-                        <td class=" text-center"><a href="#"  class=" edit_data4 btn btn-info rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
-                          <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-primary rounded" ><i class="mdi mdi-printer" aria-hidden="true"></i></a>
+                        <td class=" text-center"><a href="#"  class=" edit_data4 btn btn-success rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
+                          <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-danger rounded" ><i class="mdi mdi-printer " aria-hidden="true"></i></a>
                         </td>
                       </tr>
                       <?php
@@ -221,9 +220,7 @@ check_login();
 </div>
 
 <?php @include("includes/foot.php");?>
-<!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
+
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -243,7 +240,4 @@ check_login();
 </script>
 
 </body>
-<!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
 </html>
