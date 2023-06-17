@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 12:23 PM
+-- Generation Time: Jun 17, 2023 at 02:42 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -122,7 +122,7 @@ CREATE TABLE `tbladmin` (
 --
 
 INSERT INTO `tbladmin` (`ID`, `Staffid`, `AdminName`, `UserName`, `FirstName`, `LastName`, `MobileNumber`, `Email`, `Status`, `Photo`, `Password`, `AdminRegdate`) VALUES
-(1, 'U002', 'Admin', 'admin@gmail.com', 'Shrishail', 'Bagale', 9552245501, 'sb@gmail.com', 1, 'shri.jpeg', '21232f297a57a5a743894a0e4a801fc3', '2022-07-21 10:18:39'),
+(1, 'U002', 'Admin', 'admin', 'Shrishail', 'Bagale', 9552245501, 'sb@gmail.com', 1, 'shri.jpeg', '21232f297a57a5a743894a0e4a801fc3', '2022-07-21 10:18:39'),
 (2, '1234', 'Admin', 'sssss', 'ss', 'bb', 4655677, 'ss@gmail.com', 1, 'avatar15.jpg', '827ccb0eea8a706c4c34a16891f84e7b', '2023-06-12 07:21:52'),
 (3, '1234', 'User', 'ssssss', 'ss', 'bb', 4655677, 'ss@gmail.com', 1, 'avatar15.jpg', 'e10adc3949ba59abbe56e057f20f883e', '2023-06-12 07:23:48'),
 (31, '12', 'Superuser', 'shrishail', 'Shri', 'Bagale', 88888888, 'shri@gmail.com', 1, 'avatar15.jpg', 'e10adc3949ba59abbe56e057f20f883e', '2023-06-12 08:24:48');
@@ -141,10 +141,15 @@ CREATE TABLE `tblbooking` (
   `MobileNumber` bigint(10) DEFAULT NULL,
   `Email` varchar(200) DEFAULT NULL,
   `EventDate` varchar(200) DEFAULT NULL,
-  `EventStartingtime` varchar(200) DEFAULT NULL,
-  `EventEndingtime` varchar(200) DEFAULT NULL,
-  `VenueAddress` mediumtext DEFAULT NULL,
+  `Organization` varchar(200) DEFAULT NULL,
+  `EventStartingtime` time DEFAULT NULL,
+  `EventEndingtime` time DEFAULT NULL,
+  `VenueAddress` varchar(200) DEFAULT NULL,
+  `PlaceRequired` varchar(200) DEFAULT NULL,
   `EventType` varchar(200) DEFAULT NULL,
+  `NoOfPax` varchar(200) DEFAULT NULL,
+  `Reference` varchar(200) DEFAULT NULL,
+  `HandleBy` varchar(200) DEFAULT NULL,
   `AdditionalInformation` mediumtext DEFAULT NULL,
   `BookingDate` timestamp NULL DEFAULT current_timestamp(),
   `Remark` varchar(200) DEFAULT NULL,
@@ -156,10 +161,14 @@ CREATE TABLE `tblbooking` (
 -- Dumping data for table `tblbooking`
 --
 
-INSERT INTO `tblbooking` (`ID`, `BookingID`, `ServiceID`, `Name`, `MobileNumber`, `Email`, `EventDate`, `EventStartingtime`, `EventEndingtime`, `VenueAddress`, `EventType`, `AdditionalInformation`, `BookingDate`, `Remark`, `Status`, `UpdationDate`) VALUES
-(1, 954554731, 1, 'Surabhi Kumawat', 8080808080, 'surabhi@gmail.cmo', '2022-03-22', '11 a.m', '12 p.m', 'Suyojeet Tower, near Relience Petrol Pump, Kinaara Hotel, Nashik', 'Birthday Party', 'Special Menu with Professional waiters', '2022-03-22 09:28:13', 'Done', 'Approved', '2023-06-12 08:20:40'),
-(2, 977361722, 1, 'Jayesh Panghawane', 7070707070, 'jayesh768@gmail.com', '2022-03-24', '1 p.m', '5 p.m', 'Bansi Plaza, near Kumar Hotel, Nashik', 'Wedding', 'Special Menu', '2022-03-22 09:29:18', 'Your Booking has been approved', 'Approved', '2023-06-12 08:20:46'),
-(3, 884943934, NULL, 'Shri', 888888888, 'sb@gmail.com', '2023-06-15', '10 AM', '6 PM', 'Messe Global Pune', 'Wedding', 'NA', '2023-06-12 07:14:51', 'Your Booking has been Cancelled ', 'Cancelled', '2023-06-12 08:20:52');
+INSERT INTO `tblbooking` (`ID`, `BookingID`, `ServiceID`, `Name`, `MobileNumber`, `Email`, `EventDate`, `Organization`, `EventStartingtime`, `EventEndingtime`, `VenueAddress`, `PlaceRequired`, `EventType`, `NoOfPax`, `Reference`, `HandleBy`, `AdditionalInformation`, `BookingDate`, `Remark`, `Status`, `UpdationDate`) VALUES
+(1, 954554731, 1, 'Surabhi Kumawat', 8080808080, 'surabhi@gmail.cmo', '2022-03-22', NULL, '00:00:11', '00:00:12', NULL, '', 'Birthday Party', NULL, NULL, NULL, 'Special Menu with Professional waiters', '2022-03-22 09:28:13', 'Done', 'Approved', '2023-06-16 07:27:22'),
+(2, 977361722, 1, 'Jayesh Panghawane', 7070707070, 'jayesh768@gmail.com', '2022-03-24', NULL, '00:00:01', '00:00:05', NULL, '', 'Wedding', NULL, NULL, NULL, 'Special Menu', '2022-03-22 09:29:18', 'Your Booking has been approved', 'Approved', '2023-06-16 07:27:26'),
+(18, 214581109, 2, 'hgjhjg', 8888988708, 'shrishailbagale@gmail.com', '2023-06-29', NULL, '00:00:07', '00:00:12', NULL, NULL, 'Post Wedding', NULL, NULL, NULL, 'jkljk', '2023-06-13 05:49:45', 'Approved', 'Approved', '2023-06-17 10:26:31'),
+(19, 643436618, 1, 'Shri', 8888988708, 'sb@gmail.com', '2023-06-22', NULL, '09:00:00', '20:55:00', NULL, NULL, 'Wedding', NULL, NULL, NULL, 'NA', '2023-06-13 07:56:12', 'Cancelled', 'Cancelled', '2023-06-17 10:26:28'),
+(20, 703079522, 1, 'Shrishail Bagale', 8888988708, 'sb@gmail.com', '2023-06-22', NULL, '06:12:00', '20:12:00', NULL, 'Messe Global Hall (35000 sq ft)', 'Post Wedding', NULL, NULL, NULL, 'NA', '2023-06-13 08:12:58', 'Approved', 'Approved', '2023-06-16 11:03:06'),
+(21, 287293594, 1, 'Shrishail Bagale', 8888988708, 'sb@gmail.com', '2023-06-22', NULL, '06:14:00', '20:14:00', NULL, 'Messe Global Hall (35000 sq ft)', 'Wedding', NULL, NULL, NULL, 'NA', '2023-06-13 08:15:23', 'Ok', 'Approved', '2023-06-16 11:03:09'),
+(23, 852202581, 1, 'Shrishail Bagale', 8888988708, 'sb@gmail.com', '2023-06-22', 'Individual', '05:23:00', '18:23:00', NULL, 'Messe Global Hall (35000 sq ft)', 'Anniversary', '200', 'shri', 'Sachin', 'NAAAA', '2023-06-16 07:54:04', NULL, NULL, '2023-06-16 11:03:03');
 
 -- --------------------------------------------------------
 
@@ -218,22 +227,24 @@ INSERT INTO `tbleventtype` (`ID`, `EventType`, `CreationDate`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblplacerequired`
+-- Table structure for table `tblplace`
 --
 
-CREATE TABLE `tblplacerequired` (
+CREATE TABLE `tblplace` (
   `PlaceId` int(11) NOT NULL,
   `PlaceName` varchar(225) NOT NULL,
+  `PlaceDes` varchar(200) NOT NULL,
   `PlacePrice` varchar(200) NOT NULL,
   `CreationDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tblplacerequired`
+-- Dumping data for table `tblplace`
 --
 
-INSERT INTO `tblplacerequired` (`PlaceId`, `PlaceName`, `PlacePrice`, `CreationDate`) VALUES
-(1, 'Messe Global Hall (35000 sq ft)', '300000', '2023-06-13 06:56:15');
+INSERT INTO `tblplace` (`PlaceId`, `PlaceName`, `PlaceDes`, `PlacePrice`, `CreationDate`) VALUES
+(1, 'Messe Global Hall (35000 sq ft)', 'NA', '500000', '2023-06-13 06:56:15'),
+(6, 'Blossom Hall (6000 sq ft) + Lawn-2 (14000 sq ft)', 'NA', '500000', '2023-06-13 06:35:25');
 
 -- --------------------------------------------------------
 
@@ -258,7 +269,7 @@ INSERT INTO `tblservice` (`ID`, `ServiceName`, `SerDes`, `ServicePrice`, `Creati
 (2, 'Party DJ', '(we install the DJ equipment 1 hour before your selected event start time)', '700', '2022-01-24 07:18:32'),
 (3, 'Ceremony Music', 'Our ceremony music service is a popular add on to our wedding DJ stay all day hire.', '650', '2022-01-24 07:19:14'),
 (4, 'Photo Booth Hire', 'we install the DJ equipment before your ceremony ', '500', '2022-01-24 07:19:51'),
-(5, 'Uplighters', 'Uplighters are bright lighting fixtures which are installed on the floor and shine a vibrant wash of colour over the walls of your venue', '200', '2022-01-24 07:21:14');
+(5, 'Uplighters', 'Uplighters are bright lighting fixtures which are installed on the floor and shine a vibrant wash of colour over the walls of your venue', '300', '2022-01-24 07:21:14');
 
 -- --------------------------------------------------------
 
@@ -331,9 +342,9 @@ ALTER TABLE `tbleventtype`
   ADD KEY `EventType` (`EventType`(191));
 
 --
--- Indexes for table `tblplacerequired`
+-- Indexes for table `tblplace`
 --
-ALTER TABLE `tblplacerequired`
+ALTER TABLE `tblplace`
   ADD PRIMARY KEY (`PlaceId`);
 
 --
@@ -381,7 +392,7 @@ ALTER TABLE `tbladmin`
 -- AUTO_INCREMENT for table `tblbooking`
 --
 ALTER TABLE `tblbooking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tblcompany`
@@ -396,10 +407,10 @@ ALTER TABLE `tbleventtype`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `tblplacerequired`
+-- AUTO_INCREMENT for table `tblplace`
 --
-ALTER TABLE `tblplacerequired`
-  MODIFY `PlaceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `tblplace`
+  MODIFY `PlaceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblservice`
