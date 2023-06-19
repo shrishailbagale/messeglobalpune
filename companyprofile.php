@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
         
         <?php @include("includes/header.php");?>
         
-        <div class="container-fluid page-body-wrapper">
+        <div class="container page-body-wrapper">
             
             
             <div class="main-panel">
@@ -72,8 +72,9 @@ if(isset($_POST['submit']))
                                                         }
                                                         if($_SESSION['permission'] =="Admin"){
 
-                                                            ?>  
-                                                            <a href="update_logo.php?id=<?php echo $companyname;?>">Change logo</a>
+                                                            ?> 
+                                                            <br> <br>
+                                                            <a class="btn btn-sm text-light btn-primary" href="update_logo.php?id=<?php echo $companyname;?>">Change logo</a>
                                                             <?php
                                                         } ?>
                                                     </div>
@@ -127,7 +128,7 @@ if(isset($_POST['submit']))
                                         }
                                     } ?>
                                     <br>
-                                    <button type="submit" name="submit" class="btn btn-primary btn-fw mr-2" style="float: left;">update</button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-fw mr-2" style="float: left;">update</button>
                                 </form>
                             </div>
                         </div>

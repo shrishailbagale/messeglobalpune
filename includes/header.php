@@ -15,7 +15,7 @@
                 <div class="input-group-prepend bg-transparent">
                   <i class="input-group-text border-0 mdi mdi-magnify"></i>
                 </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search booking">
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Search booking" >
               </div>
                
             </form>
@@ -90,9 +90,7 @@
     </div>
  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 d-flex flex-row">
 
-  <div class="navbar-menu-wrapper d-flex align-items-stretch w-100">
-   
-   
+  <div class="navbar-menu-wrapper d-flex align-items-stretch w-100">   
     <ul class="navbar-nav navbar-nav-left">
         <li class="nav-item dropdown">
             <a class="nav-link" href="dashboard.php">Dashboard</a>
@@ -178,7 +176,7 @@
           </li>
 
          <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=918888988708&text=Hi%20Nikhil,%20I%20saw%20your%20Project%20named%20as%20Royal%20Event%20Software.%20I%20need%20your%20help%20for%20the%20same.
+            <a class="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=918888988708&text=Hi%20Shrishail Bagale,%20I%20saw%20your%20project%20named%20as%20Messe%20Global%20Pune%20Laxmi%20Lawns.%20I%20need%20your%20help%20for%20the%20same.
           ">
                
                 <span class="menu-title">Contact Author</span>

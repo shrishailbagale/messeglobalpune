@@ -23,14 +23,14 @@ if(isset($_GET['delid']))
     
     <div class="container-fluid page-body-wrapper">
       
-      
+    <div class="container">
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="modal-header">
-                  <h5 class="modal-title" style="float: left;">Service register</h5>    
+                  <h5 class="modal-title h4" style="float: left;">Service register</h5>    
                   <div class="card-tools" style="float: right;">
                     <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addsector" ><i class="fas fa-plus" ></i> Add Event
                     </button>
@@ -58,8 +58,9 @@ if(isset($_GET['delid']))
                   </div>
                   
                 </div>
-                
-              <div class="card-body table-responsive p-3">
+
+              
+                <div class="card-body table-responsive p-3">
                 <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                   <thead>
                     <tr>
@@ -70,7 +71,7 @@ if(isset($_GET['delid']))
                     </tr>
                   </thead>
                 
-<tbody>
+                  <tbody>
                     <?php
                     $sql="SELECT * from tbleventtype";
                     $query = $dbh -> prepare($sql);
@@ -85,7 +86,7 @@ if(isset($_GET['delid']))
                           <tr>
                             <td class="text-center"><?php echo htmlentities($cnt);?></td>
                             <td class="font-w600"><?php  echo htmlentities($row->EventType);?></td>
-                            <td class="d-none d-sm-table-cell"><?php  echo htmlentities($row->CreationDate);?></td>
+                            <td class="d-sm-table-cell"><?php  echo htmlentities($row->CreationDate);?></td>
                             <td class="text-center">
                               <a href="manage_event.php?delid=<?php echo ($row->ID);?>" onclick="return confirm('Do you really want to Delete ?');" class="rounded btn btn-danger"><i class="mdi mdi-delete" aria-hidden="true"></i></a>
                             </td>
@@ -99,6 +100,9 @@ if(isset($_GET['delid']))
                   </table>
                 </div>
               </div>
+                </div>
+                
+
             </div>
           </div>
         </div>
@@ -112,13 +116,6 @@ if(isset($_GET['delid']))
     
   </div>
   
-  <?php @include("includes/foot.php");?>
-<!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
-  
+  <?php @include("includes/foot.php");?>  
 </body>
-<!--  Author Name: Nikhil Bhalerao From India 
- for any PHP, Codeignitor, Laravel OR Python work contact me at +919423979339 OR ndbhalerao91@gmail.com  
- Visit website : www.nikhilbhalerao.com -->
 </html>

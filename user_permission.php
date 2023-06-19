@@ -83,7 +83,7 @@ if(isset($_GET['delid']))
 
                                         <td><?php  echo htmlentities($row->permission);?></td>
                                         <td class="d-none d-sm-table-cell text-center">
-                                         <button class="btn btn-primary btn-xs edit_data" id="<?php echo  ($row->id); ?>" title="click for edit">Change Permission</button>
+                                         <button class="btn cancelled btn-xs edit_data" id="<?php echo  ($row->id); ?>" title="click for edit">Change Permission</button>
                                      </td>
                                  </tr>
                                  <?php $cnt=$cnt+1;

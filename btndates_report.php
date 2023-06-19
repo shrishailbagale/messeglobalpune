@@ -21,22 +21,28 @@ check_login();
              <div class="modal-header">
               <h5 class="modal-title" style="float: left;">Between Dates Reports</h5>
             </div>
-            <div class="col-md-12 mt-4">
-              <form class="forms-sample" method="post" enctype="multipart/form-data" class="form-horizontal">
-                <div class="row ">
-                  <div class="form-group col-md-6 ">
-                    <label for="exampleInputPassword1">From Date</label>
-                    <input type="date" id="fromdate" name="fromdate" value="" class="form-control" required="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="exampleInputName1">To Date </label>
-                    <input type="date" id="todate" name="todate" value="" class="form-control" required="">
-                  </div>
-                </div>
+            <div class="container">
+              <div class="card">
+                <div class="card-body">
+                  <div class="col-md-12 mt-4">
+                  <form class="forms-sample" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="row ">
+                      <div class="form-group col-md-6 ">
+                        <label for="exampleInputPassword1">From Date</label>
+                        <input type="date" id="fromdate" name="fromdate" value="" class="form-control" required="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputName1">To Date </label>
+                        <input type="date" id="todate" name="todate" value="" class="form-control" required="">
+                      </div>
+                    </div>
 
-                <button type="submit" style="float: left;"  name="search" id="submit" class="btn btn-info btn-sm  mb-4">Search</button>
-              </form>
-            </div>
+                    <button type="submit" style="float: left;"  name="search" id="submit" class="btn btn-info btn-sm  mb-4">Search</button>
+                  </form>
+                </div>
+                </div>
+</div>
+              </div>
           </div>
         </div>
         <div class="col-lg-12 grid-margin stretch-card">
@@ -90,7 +96,7 @@ check_login();
                 </tr>
               </thead>
             
-<tbody>
+              <tbody>
                 <?php
                 $sql="SELECT * from tblbooking where date( BookingDate) between '$fdate' and '$tdate'";
                 $query = $dbh -> prepare($sql);
@@ -117,7 +123,7 @@ check_login();
                           <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                           <?php 
                         } else { ?>
-                          <td class="d-none d-sm-table-cell">
+                          <td class="d-sm-table-cell">
                             <span class="badge badge-info"><?php  echo htmlentities($row->Status);?></span>
                           </td>
                           <?php 
@@ -143,11 +149,11 @@ check_login();
                   <tr>
                    <th class="text-center"></th>
                    <th>Booking ID</th>
-                   <th class="d-none d-sm-table-cell">Cutomer Name</th>
-                   <th class="d-none d-sm-table-cell">Mobile Number</th>
-                   <th class="d-none d-sm-table-cell">Email</th>
-                   <th class="d-none d-sm-table-cell">Booking Date</th>
-                   <th class="d-none d-sm-table-cell">Status</th>
+                   <th class="d-sm-table-cell">Cutomer Name</th>
+                   <th class="d-sm-table-cell">Mobile Number</th>
+                   <th class="d-sm-table-cell">Email</th>
+                   <th class="d-sm-table-cell">Booking Date</th>
+                   <th class="d-sm-table-cell">Status</th>
                    <th class=" Text-center" style="width: 15%;">Action</th>
                  </tr>
                </thead>
@@ -179,19 +185,20 @@ check_login();
                           <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                           <?php 
                         } else if($row->Status=="Cancelled"){ ?>
-                          <td class="d-none d-sm-table-cell">
-                            <span class="badge" style="background-color:red; color:white;"><?php  echo htmlentities($row->Status);?></span>
+                          <td class="d-sm-table-cell">
+                            <span class="badge cancelled"><?php  echo htmlentities($row->Status);?></span>
                           </td>
 
                           <?php 
                         } else { ?>
-                          <td class="d-none d-sm-table-cell">
+                          <td class="d-sm-table-cell">
                             <span class="badge" style="background-color:green; color:white;"><?php  echo htmlentities($row->Status);?></span>
                           </td>
                           <?php 
                         } ?> 
-                        <td class=" text-center"><a href="#"  class=" edit_data4 btn btn-success rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
-                          <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-danger rounded" ><i class="mdi mdi-printer " aria-hidden="true"></i></a>
+                        <td class="text-center">
+                          <a href="#"  class=" edit_data4 btn btn-success rounded" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
+                          <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-danger rounded" ><i class="mdi mdi-printer" aria-hidden="true"></i></a>
                         </td>
                       </tr>
                       <?php

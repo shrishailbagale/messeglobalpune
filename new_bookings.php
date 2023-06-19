@@ -251,12 +251,12 @@ if(isset($_POST['submit']))
                 <tr>
                  <th class="text-center"></th>
                  <th>Booking ID</th>
-                 <th class="d-none d-sm-table-cell">Event Date</th>
-                 <th class="d-none d-sm-table-cell">Cutomer Name</th>
-                 <th class="d-none d-sm-table-cell">Mobile Number</th>
-                 <th class="d-none d-sm-table-cell">Email</th>
-                 <th class="d-none d-sm-table-cell">Booking Date</th>
-                 <th class="d-none d-sm-table-cell">Status</th>
+                 <th class="d-sm-table-cell">Event Date</th>
+                 <th class="d-sm-table-cell">Cutomer Name</th>
+                 <th class="d-sm-table-cell">Mobile Number</th>
+                 <th class="d-sm-table-cell">Email</th>
+                 <th class="d-sm-table-cell">Booking Date</th>
+                 <th class=" d-sm-table-cell">Status</th>
                  <th class=" Text-center" style="width: 15%;">Action</th>
                </tr>
              </thead>

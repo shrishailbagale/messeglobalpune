@@ -13767,7 +13767,10 @@ height: 100%;}
     width: 100vw;
     height: 100vh;
     background-color:#fff;
-    background-image: url("../../assets/images/loader.gif");
+    background-image: url("../../assets/images/logo.png");
     background-repeat: no-repeat;
     background-position: center;
 }
+
+
+

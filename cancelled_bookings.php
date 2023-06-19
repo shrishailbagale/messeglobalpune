@@ -54,11 +54,11 @@ check_login();
                 <tr>
                  <th class="text-center"></th>
                  <th>Booking ID</th>
-                 <th class="d-none d-sm-table-cell">Cutomer Name</th>
-                 <th class="d-none d-sm-table-cell">Mobile Number</th>
-                 <th class="d-none d-sm-table-cell">Email</th>
-                 <th class="d-none d-sm-table-cell">Booking Date</th>
-                 <th class="d-none d-sm-table-cell">Status</th>
+                 <th class="d-sm-table-cell">Cutomer Name</th>
+                 <th class="d-sm-table-cell">Mobile Number</th>
+                 <th class="d-sm-table-cell">Email</th>
+                 <th class="d-sm-table-cell">Booking Date</th>
+                 <th class="d-sm-table-cell">Status</th>
                  <th class=" Text-center" style="width: 15%;">Action</th>
                </tr>
              </thead>
@@ -89,8 +89,8 @@ check_login();
                         <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                         <?php 
                       } else { ?>
-                        <td class="d-none d-sm-table-cell">
-                          <span class="badge badge-info text-light" style="background-color:#db0606;"><?php  echo htmlentities($row->Status);?></span>
+                        <td class="d-sm-table-cell">
+                          <span class="badge cancelled"><?php  echo htmlentities($row->Status);?></span>
                         </td>
                         <?php 
                       } ?> 

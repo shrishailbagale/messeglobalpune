@@ -17,13 +17,9 @@ if(isset($_GET['delid']))
 <html lang="en">
 <?php @include("includes/head.php");?>
 <body>
-  <div class="container-scroller">
-    
-    <?php @include("includes/header.php");?>
-    
-    <div class="container-fluid page-body-wrapper">
-      
-      
+  <div class="container-scroller">    
+    <?php @include("includes/header.php");?>    
+    <div class="container page-body-wrapper">      
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
@@ -35,8 +31,7 @@ if(isset($_GET['delid']))
                     <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addsector" ><i class="fas fa-plus" ></i> Add Place
                     </button>
                   </div>    
-                </div>
-                
+                </div>                
                 <div class="modal fade" id="addsector">
                   <div class="modal-dialog modal-md ">
                     <div class="modal-content">
@@ -53,12 +48,9 @@ if(isset($_GET['delid']))
                       <div class="modal-footer ">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       </div>
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-                
+                    </div>                    
+                  </div>                  
+                </div>               
                 
                 <div id="editData" class="modal fade">
                   <div class="modal-dialog ">
@@ -86,7 +78,7 @@ if(isset($_GET['delid']))
                 <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                   <thead>
                     <tr>
-                      <th class="text-center">No.</th>
+                      <th>No.</th>
                       <th>Place name</th>
                       <th>Place Description</th>
 

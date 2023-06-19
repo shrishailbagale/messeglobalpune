@@ -54,13 +54,13 @@ check_login();
                 <tr>
                  <th class="text-center"></th>
                  <th>Booking ID</th>
-                 <th class="d-none d-sm-table-cell">Booking Date</th>
-                 <th class="d-none d-sm-table-cell">Customer Name</th>
-                 <th class="d-none d-sm-table-cell">Mobile Number</th>
-                 <th class="d-none d-sm-table-cell">Email</th>
+                 <th class="d-sm-table-cell">Booking Date</th>
+                 <th class="d-sm-table-cell">Customer Name</th>
+                 <th class="d-sm-table-cell">Mobile Number</th>
+                 <th class="d-sm-table-cell">Email</th>
                  
-                 <th class="d-none d-sm-table-cell">Status</th>
-                 <th class=" Text-center" style="width: 15%;">Action</th>
+                 <th class="d-sm-table-cell">Status</th>
+                 <th class="Text-center" style="width: 15%;">Action</th>
                </tr>
              </thead>
            
@@ -92,13 +92,13 @@ check_login();
                         <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                         <?php 
                       } else { ?>
-                        <td class="d-none d-sm-table-cell">
-                          <span class="badge badge-success"><h6><?php  echo htmlentities($row->Status);?></h6></span>
+                        <td class="d-sm-table-cell">
+                          <span class="badge approved"><?php  echo htmlentities($row->Status);?></span>
                         </td>
                         <?php 
                       } ?> 
                       <td class=" text-center"><a href="#"  class=" edit_data4 rounded btn btn-info" id="<?php echo  ($row->ID); ?>" title="click to edit"><i class="mdi mdi-eye" aria-hidden="true"></i></a>
-                        <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-primary rounded"><i class="mdi mdi-printer" aria-hidden="true"></i></a>
+                        <a href="invoice_generating.php?invid=<?php echo htmlentities ($row->ID);?>" class="btn btn-danger rounded"><i class="mdi mdi-printer" aria-hidden="true"></i></a>
                       </td>
                     </tr>
                     <?php

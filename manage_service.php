@@ -21,7 +21,7 @@ if(isset($_GET['delid']))
     
     <?php @include("includes/header.php");?>
     
-    <div class="container-fluid page-body-wrapper">
+    <div class="container page-body-wrapper">
       
       
       <div class="main-panel">
@@ -30,7 +30,7 @@ if(isset($_GET['delid']))
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="modal-header">
-                  <h5 class="modal-title" style="float: left;">Service register</h5>    
+                  <h4 class="modal-title" style="float: left;">Service register</h4>    
                   <div class="card-tools" style="float: right;">
                     <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addsector" ><i class="fas fa-plus" ></i> Add service
                     </button>

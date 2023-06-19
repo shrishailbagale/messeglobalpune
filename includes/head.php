@@ -5,8 +5,7 @@
   <title>Messe Global Pune</title>
   
   <link rel="stylesheet" href="assets/vendor/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.base.css">  
-  
+  <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.base.css">    
   
   <link rel="stylesheet" href="assets/css/style.css">
   
@@ -21,13 +20,27 @@
     } 
 
     td { 
-
       white-space: normal !important;
       word-wrap: break-word;
       hyphens: auto;
       line-height: 20px !important;
 
-    } 
+    }     
+    .cancelled{
+      background-color: red;
+      color: #FFFFFF;  
+    }
+    .approved{
+      background-color: green;
+      color: #FFFFFF;      
+     
+    }
+    .add{
+      background-color: blue ;
+      color: #FFFFFF;  
+
+    }
+    
   </style>
   
   <style>

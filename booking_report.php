@@ -96,12 +96,12 @@ check_login();
                         <?php 
                       } else if($row->Status=="Cancelled")  { ?>
                         <td class="d-none d-sm-table-cell">
-                          <span class="badge" style="background-color:red; color:white;"><?php  echo htmlentities($row->Status);?></span>
+                          <span class="badge cancelled"><?php  echo htmlentities($row->Status);?></span>
                         </td>
                         <?php 
                       } else { ?>
                         <td class="d-none d-sm-table-cell">
-                          <span class="badge badge-info" style="background-color:green; color:white;"><?php  echo htmlentities($row->Status);?></span>
+                          <span class="badge badge-info approved"><?php  echo htmlentities($row->Status);?></span>
                         </td>
 
                         <?php 
