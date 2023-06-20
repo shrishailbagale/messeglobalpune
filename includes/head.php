@@ -1,5 +1,4 @@
- <head>
-  
+ <head>  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Messe Global Pune</title>
@@ -35,11 +34,11 @@
       color: #FFFFFF;      
      
     }
-    .add{
-      background-color: blue ;
-      color: #FFFFFF;  
-
+    .card a{
+      text-decoration: none;
+      color:white;
     }
+    
     
   </style>
   

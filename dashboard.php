@@ -20,82 +20,89 @@ check_login();
 					messe global pune laxmi lawns</strong>
 				<div class="content-wrapper">
 					<div class="row">
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-6 stretch-card grid-margin">
-									<div class="card bg-gradient-info card-img-holder text-white"
-										style="height: 130px;">
+						<div class="col-md-6">							
+							<div class="row">								
+								<div class="col-md-6 stretch-card grid-margin">								
+									<div class="card bg-gradient-info card-img-holder text-white" style="height: 130px;">
+									<a href="new_bookings.php">
 										<div class="card-body">
 											<h4 class="font-weight-normal mb-3">Total New Booking</h4>
 											<?php 
-                  $sql ="SELECT ID from tblbooking where Status is null ";
-                  $query = $dbh -> prepare($sql);
-                  $query->execute();
-                  $results=$query->fetchAll(PDO::FETCH_OBJ);
-                  $totalnewbooking=$query->rowCount();
-                  ?>
+												$sql ="SELECT ID from tblbooking where Status is null ";
+												$query = $dbh -> prepare($sql);
+												$query->execute();
+												$results=$query->fetchAll(PDO::FETCH_OBJ);
+												$totalnewbooking=$query->rowCount();
+											?>
 											<h2 class="mb-5">
 												<?php echo htmlentities($totalnewbooking);?>
 											</h2>
 										</div>
-									</div>
+									</a>
+								</div>
+								
 								</div>
 
 								<div class="col-md-6 stretch-card grid-margin">
 									<div
 										class="card bg-gradient-warning card-img-holder text-white"
 										style="height: 130px;">
-										<div class="card-body">
-											<h4 class="font-weight-normal mb-3">Total Approved
-												Booking</h4>
-											<?php 
-                        $sql ="SELECT ID from tblbooking where Status='Approved'";
-                        $query = $dbh -> prepare($sql);
-                        $query->execute();
-                        $results=$query->fetchAll(PDO::FETCH_OBJ);
-                        $totalappbooking=$query->rowCount();
-                        ?>
-											<h2 class="mb-5">
-												<?php echo htmlentities($totalappbooking);?>
-											</h2>
-										</div>
+										<a href="approved_bookings.php">
+											<div class="card-body">
+												<h4 class="font-weight-normal mb-3">Total Approved
+													Booking</h4>
+												<?php 
+													$sql ="SELECT ID from tblbooking where Status='Approved'";
+													$query = $dbh -> prepare($sql);
+													$query->execute();
+													$results=$query->fetchAll(PDO::FETCH_OBJ);
+													$totalappbooking=$query->rowCount();
+												?>
+												<h2 class="mb-5">
+													<?php echo htmlentities($totalappbooking);?>
+												</h2>
+											</div>
+										</a>
 									</div>
 								</div>
 								<div class="col-md-6 stretch-card grid-margin">
-									<div
-										class="card bg-gradient-primary  card-img-holder text-white"
+									<div class="card bg-gradient-primary  card-img-holder text-white"
 										style="height: 130px;">
-										<div class="card-body">
-											<h4 class="font-weight-normal mb-3">Total Cancelled	Booking</h4>
-                        <?php 
-                          $sql ="SELECT ID from tblbooking where Status='Cancelled' ";
-                          $query = $dbh -> prepare($sql);
-                          $query->execute();
-                          $results=$query->fetchAll(PDO::FETCH_OBJ);
-                          $totalcanbooking=$query->rowCount();
-                          ?>
-											<h2 class="mb-5">
-												<?php echo htmlentities($totalcanbooking);?>
-											</h2>
-										</div>
+										<a href="cancelled_bookings.php">
+											<div class="card-body">
+												<h4 class="font-weight-normal mb-3">Total Cancelled	Booking</h4>
+													<?php 
+														$sql ="SELECT ID from tblbooking where Status='Cancelled' ";
+														$query = $dbh -> prepare($sql);
+														$query->execute();
+														$results=$query->fetchAll(PDO::FETCH_OBJ);
+														$totalcanbooking=$query->rowCount();
+													?>
+												<h2 class="mb-5">
+													<?php echo htmlentities($totalcanbooking);?>
+												</h2>
+											</div>
+										</a>
 									</div>
 								</div>
 								<div class="col-md-6 stretch-card grid-margin">
 									<div class="card bg-gradient-success card-img-holder text-white"
 										style="height: 130px;">
-										<div class="card-body">
-											<h4 class="font-weight-normal mb-3">Total Services</h4>
-											<?php 
-                        $sql ="SELECT ID from tblservice";
-                        $query = $dbh -> prepare($sql);
-                        $query->execute();
-                        $results=$query->fetchAll(PDO::FETCH_OBJ);
-                        $totalserv=$query->rowCount();
-                        ?>
-											<h2 class="mb-5">
-												<?php echo htmlentities($totalserv);?>
-											</h2>
-										</div>
+										<a href="manage_service.php">
+											<div class="card-body">
+												<h4 class="font-weight-normal mb-3">Total Services</h4>
+												<?php 
+													$sql ="SELECT ID from tblservice";
+													$query = $dbh -> prepare($sql);
+													$query->execute();
+													$results=$query->fetchAll(PDO::FETCH_OBJ);
+													$totalserv=$query->rowCount();
+													?>
+												<h2 class="mb-5">
+													<?php echo htmlentities($totalserv);?>
+												</h2>
+											</div>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -108,8 +115,6 @@ check_login();
 								<div class="modal-header">
 									<h3 class="modal-title " style="float: left;">New Bookings</h3>
 								</div>
-
-
 
 								<div id="editData4" class="modal fade">
 									<div class="modal-dialog modal-xl">
