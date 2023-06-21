@@ -10,7 +10,6 @@
 
 <?php @include("includes/footer.php");?>
 
-
 <script>
 
     

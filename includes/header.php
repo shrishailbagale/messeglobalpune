@@ -3,8 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<nav class="navbar navbar-expand-md navbar-light">
-                        					
+					<nav class="navbar navbar-expand-md navbar-light">                        					
 						<a class="navbar-brand" href="https://front.codes/" target="_blank"><img src="https://messeglobalpune.com/wp-content/uploads/2022/11/MESSGLOBAL_-300x57.png" alt=""></a>	
 						
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

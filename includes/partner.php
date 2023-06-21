@@ -108,4 +108,5 @@
 			<img src="https://www.orangetechcollege.net/UserFiles/Servers/Server_86919/Image/Partners/Wyndham.png" alt="" />
 		</div>
 	</div>
+	
 </div>
