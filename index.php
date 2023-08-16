@@ -1,70 +1,121 @@
+
+<?php
+session_start();
+error_reporting(0);
+include('includes/dbconnection.php');
+if(isset($_POST['login']))
+{
+    $username=$_POST['username'];
+    $password=md5($_POST['password']);
+    $sql ="SELECT * FROM tbladmin WHERE UserName=:username and Password=:password";
+    $query=$dbh->prepare($sql);
+    $query-> bindParam(':username', $username, PDO::PARAM_STR);
+    $query-> bindParam(':password', $password, PDO::PARAM_STR);
+    $query-> execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
+    if($query->rowCount() > 0)
+    {
+        foreach ($results as $result) 
+        {
+            $_SESSION['odmsaid']=$result->ID;
+            $_SESSION['login']=$result->username;
+            $_SESSION['permission']=$result->AdminName;
+            $get=$result->Status;
+        }
+        $aa= $_SESSION['odmsaid'];
+        $sql="SELECT * from tbladmin  where ID=:aa";
+        $query = $dbh -> prepare($sql);
+        $query->bindParam(':aa',$aa,PDO::PARAM_STR);
+        $query->execute();
+        $results=$query->fetchAll(PDO::FETCH_OBJ);
+        $cnt=1;
+        if($query->rowCount() > 0)
+        {
+            foreach($results as $row)
+            {            
+                if($row->Status=="1")
+                { 
+                    echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";                  
+
+                } else
+                { 
+                    echo "<script>
+                    alert('Your account was disabled Approach Admin');document.location ='index.php';
+                    </script>";
+                }
+            } 
+        } 
+    } else{
+        echo "<script>alert('Invalid Details');</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php @include("includes/head.php");?>
-
 <body>
-
-<?php @include("includes/header.php");?>
-
-<?php @include("includes/partner.php");?>
-
-<?php @include("includes/footer.php");?>
-
-<script>
-
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper ">
+            <div class="content-wrapper d-flex align-items-center auth p-2 bg-success">
+                <div class="row flex-grow">
+                    <div class="col-md-4 p-0 offset-md-4">
+                        <div class="auth-form-light text-left p-5">
+                            <div class="brand-logo" align="center">
+                                <img class="img-avatar mb-3" src="assets/img/companyimages/logo1.jpg" alt=""><br>
+                                <h4 class="text-muted mt-4">
+                                    Welcome Administrator !
+                                </h4>
+                            </div>
+                            <form role="form" id=""  method="post" enctype="multipart/form-data" class="">  
+                                <div class="form-group first">
+                                    <input type="text" class="form-control form-control-lg" name="username" id="exampleInputEmail1" placeholder="Username" required>
+                                </div>
+                                <div class="form-group last">
+                                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
+                                </div>
+                                <div class="mt-3">
+                                    <button name="login" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light"> 
+                                    <a href="forgot_password.php" class="text-danger"> 
+                                        Forgot Password
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-8 p-0">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                          <div class="carousel-inner">
+                          <div class="carousel-item text-center">
+                              <img class="d-block" src="images/1686130610104.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item ">
+                              <img class="d-block w-100" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZXZlbnQlMjBkZWNvcmF0aW9ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="First slide" >
+                            </div>
+                            <div class="carousel-item active">
+                              <img class="d-block " src="images/1690016363566.jpg" alt="Second slide">
+                            </div>
+                           
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
     
-
-/* Please ❤ this if you like it! */
-
-
-(function($) { "use strict";
-
-$(function() {
-    var header = $(".start-style");
-    $(window).scroll(function() {    
-        var scroll = $(window).scrollTop();
-    
-        if (scroll >= 10) {
-            header.removeClass('start-style').addClass("scroll-on");
-        } else {
-            header.removeClass("scroll-on").addClass('start-style');
-        }
-    });
-});		
-    
-//Animation
-
-$(document).ready(function() {
-    $('body.hero-anime').removeClass('hero-anime');
-});
-
-//Menu On Hover
-    
-$('body').on('mouseenter mouseleave','.nav-item',function(e){
-        if ($(window).width() > 750) {
-            var _d=$(e.target).closest('.nav-item');_d.addClass('show');
-            setTimeout(function(){
-            _d[_d.is(':hover')?'addClass':'removeClass']('show');
-            },1);
-        }
-});	
-
-//Switch light/dark
-
-$("#switch").on('click', function () {
-    if ($("body").hasClass("dark")) {
-        $("body").removeClass("dark");
-        $("#switch").removeClass("switched");
-    }
-    else {
-        $("body").addClass("dark");
-        $("#switch").addClass("switched");
-    }
-});  
-
-})(jQuery); 
-
-</script>
+    <?php @include("includes/foot.php");?>
     
 </body>
 </html>
