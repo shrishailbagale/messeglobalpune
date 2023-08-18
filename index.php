@@ -57,11 +57,11 @@ if(isset($_POST['login']))
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper ">
             <div class="content-wrapper d-flex align-items-center auth p-2 bg-success">
-                <div class="row flex-grow">
+                <div class="row flex-grow m-2">
                     <div class="col-md-4 p-0 offset-md-4">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo" align="center">
-                                <img class="img-avatar mb-3" src="assets/img/companyimages/logo1.jpg" alt=""><br>
+                                <img class="img-avatar mb-3" src="assets/img/companyimages/logo.png" alt=""><br>
                                 <h4 class="text-muted mt-4">
                                     Welcome Administrator !
                                 </h4>
