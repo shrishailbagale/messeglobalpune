@@ -7,7 +7,7 @@ if(isset($_POST['login']))
 {
     $username=$_POST['username'];
     $password=md5($_POST['password']);
-    $sql ="SELECT * FROM tbladmin WHERE UserName=:username and Password=:password";
+    $sql ="SELECT * FROM tbladmin WHERE Email=:username and Password=:password";
     $query=$dbh->prepare($sql);
     $query-> bindParam(':username', $username, PDO::PARAM_STR);
     $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -35,7 +35,7 @@ if(isset($_POST['login']))
             {            
                 if($row->Status=="1")
                 { 
-                    echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";                  
+                    echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";            
 
                 } else
                 { 

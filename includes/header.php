@@ -23,8 +23,8 @@
            </div>
            <div class="col-md-4">
                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                   <a class="navbar-brand brand-logo " href="dashboard.php"><img class="img-avatar"
-                           style="height: 50px; width: auto;" src="assets/img/companyimages/logo.png" alt=""></a>
+                   <a class="navbar-brand brand-logo " href="dashboard.php">
+                    <img class="img-avatar" style="height: 50px; width: auto;" src="assets/img/companyimages/logo.png" alt=""></a>
 
                    <!-- <h2>MESSE GL<img class="img-avatar" src="assets/images/favicon.ico" />BAL PUNE LAXMI LAWNS</h2> -->
 
@@ -38,33 +38,33 @@
 
                            <li class="nav-item nav-profile dropdown">
                                <?php
-        $aid=$_SESSION['odmsaid'];
-        $sql="SELECT * from  tbladmin where ID=:aid";
-        $query = $dbh -> prepare($sql);
-        $query->bindParam(':aid',$aid,PDO::PARAM_STR);
-        $query->execute();
-        $results=$query->fetchAll(PDO::FETCH_OBJ);
-        $cnt=1;
-        if($query->rowCount() > 0)
-        {
-          foreach($results as $row)
-          { 
-            ?>
+                            $aid=$_SESSION['odmsaid'];
+                            $sql="SELECT * from  tbladmin where ID=:aid";
+                            $query = $dbh -> prepare($sql);
+                            $query->bindParam(':aid',$aid,PDO::PARAM_STR);
+                            $query->execute();
+                            $results=$query->fetchAll(PDO::FETCH_OBJ);
+                            $cnt=1;
+                            if($query->rowCount() > 0)
+                            {
+                            foreach($results as $row)
+                            { 
+                                ?>
                                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                                    aria-expanded="false">
                                    <div class="nav-profile-img">
                                        <?php 
-                if($row->Photo=="avatar15.jpg")
-                { 
-                  ?>
+                                    if($row->Photo=="avatar15.jpg")
+                                    { 
+                                    ?>
                                        <img class="img-avatar" src="assets/img/avatars/avatar15.jpg" alt="">
                                        <?php 
-                } else { 
-                  ?>
+                                    } else { 
+                                    ?>
                                        <img class="img-avatar" src="assets/img/profileimages/<?php  echo $row->Photo;?>"
                                            alt="">
                                        <?php 
-                } ?>
+                                    } ?>
                                    </div>
                                    <div class="nav-profile-text ">
                                        <p class="mb-1 text-dark"><?php  echo $row->FirstName;?>
@@ -72,8 +72,8 @@
                                    </div>
                                </a>
                                <?php
-          }
-        } ?>
+                            }
+                            } ?>
 
                                <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                                    <a class="dropdown-item" href="profile.php">
@@ -93,19 +93,21 @@
 
 
        </div>
-       <nav class="navbar navbar-expand-lg navbar-dark w-100" >
-       <a class="navbar-brand" href="#"><img src="assets/img/companyimages/logo-tr.png" alt="" srcset="" style="width:40px; height:40px;"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+       <nav class="navbar navbar-expand-lg navbar-dark w-100">
+           <a class="navbar-brand" href="#"><img class="bg-white" src="assets/img/companyimages/logo-tr.png" alt=""  srcset=""
+                   style="width:40px; height:40px; border-radius:20px;"></a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-           <!-- <div class="navbar-menu-wrapper d-flex align-items-stretch w-100"> -->
+               <!-- <div class="navbar-menu-wrapper d-flex align-items-stretch w-100"> -->
                <ul class="navbar-nav navbar-nav-left" style="font-size:18px; color:#fff;">
                    <li class="nav-item dropdown">
-                       <a class="nav-link" href="dashboard.php">Dashboard</a>
+                       <a class="nav-link" href="">Dashboard</a>
                    </li>
                    <li class="nav-item dropdown">
                        <a class="nav-link" href="manage_event.php">Manage Events</a>
@@ -121,14 +123,14 @@
                            aria-haspopup="true" aria-expanded="false">Booking management</a>
                        <div class="dropdown-menu  navbar-dropdown" aria-labelledby="dropdown05">
                            <a class="dropdown-item" href="new_bookings.php">New Bookings</a>
-                           <a class="dropdown-item" href="approved_bookings.php">Approved Bookings</a>
-                           <a class="dropdown-item" href="cancelled_bookings.php">Cancelled Bookings</a>
+                           <!-- <a class="dropdown-item" href="approved_bookings.php">Approved Bookings</a>
+                           <a class="dropdown-item" href="cancelled_bookings.php">Cancelled Bookings</a> -->
                        </div>
                    </li>
 
-                   <li class="nav-item dropdown">
+                   <!-- <li class="nav-item dropdown">
                        <a class="nav-link" href="companyprofile.php">Company</a>
-                   </li>
+                   </li> -->
 
 
                    <?php
@@ -146,11 +148,11 @@
                 if($row->AdminName=="Admin"  )
                 { 
                     ?>
-                   <li class="nav-item dropdown">
+                   <!-- <li class="nav-item dropdown">
                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">User management</a>
                        <div class="dropdown-menu  navbar-dropdown" aria-labelledby="dropdown05">
-                           <a class="dropdown-item" href="userregister.php">Manage users</a>
+                           <a class="dropdown-item" href="userregister">Manage users</a>
                            <?php
                                 $aid=$_SESSION['odmsaid'];
                                 $sql="SELECT * from  tbladmin where ID=:aid";
@@ -173,22 +175,22 @@
                                     }
                                 } ?>
                        </div>
-                   </li>
+                   </li> -->
                    <?php 
                 } 
             }
         } ?>
-                   <li class="nav-item dropdown">
+                   <!-- <li class="nav-item dropdown">
                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Reports</a>
                        <div class="dropdown-menu  navbar-dropdown" aria-labelledby="dropdown05">
                            <a class="dropdown-item" href="event_report.php">Events List Reports</a>
-                           <!-- <a class="dropdown-item" href="services_report.php">Services List Reports</a> -->
+                           <a class="dropdown-item" href="services_report.php">Services List Reports</a>
                            <a class="dropdown-item" href="booking_report.php">Booking Reports</a>
                            <a class="dropdown-item" href="btndates_report.php">Btndates Reports</a>
 
                        </div>
-                   </li>
+                   </li> -->
 
                    <li class="nav-item">
                        <a class="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=918888988708&text=Hi%20Shrishail Bagale,%20I%20saw%20your%20project%20named%20as%20Messe%20Global%20Pune%20Laxmi%20Lawns.%20I%20need%20your%20help%20for%20the%20same.
@@ -214,7 +216,7 @@
 
                </ul>
            </div>
-       </nav>
+        </nav>
 
 
        <script>

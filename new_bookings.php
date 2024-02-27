@@ -124,18 +124,18 @@ if(isset($_POST['submit']))
                                                         </div>
                                                        
                                                         <!-- 
-                     <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="label" for="name">Event Starting Time</label>
-                          <input type="time" name="est" class="form-control">                         
-                        </div>
-                      </div>
-                      <div class="col-md-3"> 
-                        <div class="form-group">
-                          <label class="label" for="email">Event Finish Time</label>
-                          <input type="time" name="eetime" class="form-control" required="true">                         
-                        </div>
-                      </div> -->
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                        <label class="label" for="name">Event Starting Time</label>
+                                                        <input type="time" name="est" class="form-control">                         
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3"> 
+                                                        <div class="form-group">
+                                                        <label class="label" for="email">Event Finish Time</label>
+                                                        <input type="time" name="eetime" class="form-control" required="true">                         
+                                                        </div>
+                                                    </div> -->
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="label" for="name">Company Name/ Full Name:</label>
